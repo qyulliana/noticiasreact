@@ -1,24 +1,33 @@
-import logo from './logo.svg';
 import './App.css';
+import {Container, Grid, Typography} from "@mui/material";
+import Formulario from "./components/Formulario/Index";
+import {NoticiasProvider} from "./components/context/NoticiasProvider";
+import ListadoNoticias from "./components/ListadoNoticias/Index";
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
+    <>
+      <NoticiasProvider>
+      <Container>
+        <header>
+          <Typography align={"center"} marginY={5} component={"h1"} variant={"h3"}>
+            Buscador de noticias
+          </Typography>
+        </header>
+        <Grid
+         container
+         direction={"row"}
+         justifyContent={"center"}
+         alignItems={"center"}
         >
-          Learn React
-        </a>
-      </header>
-    </div>
+          <Grid item xs={12} md={6} lg={4}>
+            <Formulario/>
+          </Grid>
+        </Grid>
+      </Container>
+        <ListadoNoticias/>
+      </NoticiasProvider>
+    </>
   );
 }
 
